@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gamingDate/service/accountdataService.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,6 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+  AccountDataService accountDataService = AccountDataService();
+  void testLogin(){
+    accountDataService.getAccountDataById(1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              ElevatedButton(onPressed: testLogin),
               Text(
                 'You have pushed the button this many times:',
               ),
