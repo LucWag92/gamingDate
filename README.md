@@ -4,7 +4,7 @@ An application for you and your friends to organize what is going to be gamed to
 
 ## Debuging Infos
 ### Backend:
-- Make sure you navigate all the way into folder which contains pim.xml file
+- Make sure you navigate all the way into folder which contains pom.xml file
 - Start with: mvn spring-boot run
 
 ### Frontend:
