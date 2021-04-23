@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gamingDate/model/accountdata.dart';
+import 'package:gaming_date/model/accountdata.dart';
 
 void main() {
   test('Constructor and getter', () {

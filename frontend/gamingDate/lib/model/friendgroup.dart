@@ -1,5 +1,5 @@
-import 'package:gamingDate/model/game.dart';
-import 'package:gamingDate/model/profile.dart';
+import 'package:gaming_date/model/game.dart';
+import 'package:gaming_date/model/profile.dart';
 
 class FriendGroup {
   String _friendGroupId;
@@ -7,7 +7,8 @@ class FriendGroup {
   Game _lastFavouriteGame;
   List<Profile> _members;
 
-  FriendGroup(this._friendGroupId, this._friendGroupName, this._lastFavouriteGame, this._members);
+  FriendGroup(this._friendGroupId, this._friendGroupName,
+      this._lastFavouriteGame, this._members);
 
   String get friendGroupId => _friendGroupId;
 

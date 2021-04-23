@@ -1,5 +1,5 @@
-import 'package:gamingDate/model/accountdata.dart';
-import 'package:gamingDate/model/profile.dart';
+import 'package:gaming_date/model/accountdata.dart';
+import 'package:gaming_date/model/profile.dart';
 
 class User {
   String _userId;
@@ -11,5 +11,4 @@ class User {
   String get userId => _userId;
   Profile get profile => _profile;
   AccountData get accountData => _accountData;
-
 }

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gamingDate/model/friendgroup.dart';
-import 'package:gamingDate/model/game.dart';
+import 'package:gaming_date/model/friendgroup.dart';
+import 'package:gaming_date/model/game.dart';
 
 void main() {
   test('Constructor and getter', () {

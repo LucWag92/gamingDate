@@ -1,5 +1,5 @@
-import 'package:gamingDate/model/game.dart';
-import 'package:gamingDate/model/onlinestatus.dart';
+import 'package:gaming_date/model/game.dart';
+import 'package:gaming_date/model/onlinestatus.dart';
 
 class Profile {
   String _profileId;

@@ -1,4 +1,4 @@
-import 'package:gamingDate/model/onlineStatusEnum.dart';
+import 'package:gaming_date/model/onlineStatusEnum.dart';
 
 class OnlineStatus {
   String _onlineStatusId;
