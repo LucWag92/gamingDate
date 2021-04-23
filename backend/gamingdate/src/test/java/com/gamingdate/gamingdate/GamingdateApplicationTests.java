@@ -8,6 +8,7 @@ class GamingdateApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
