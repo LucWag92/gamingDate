@@ -23,10 +23,10 @@ jobs:
           channel: "stable"
       - name: Install dependencies
         working-directory: ./frontend/gamingDate
-        run: dart pub get
+        run: flutter pub get
       - name: Analyze project source
         working-directory: ./frontend/gamingDate
-        run: dart analyze
+        run: flutter analyze
       - name: Run tests
         working-directory: ./frontend/gamingDate
-        run: dart test
+        run: flutter test
