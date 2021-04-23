@@ -5,8 +5,8 @@ import 'package:gamingDate/model/user.dart';
 
 void main(){
   test('Constructor and getter',() {
-    final User user = User(0, AccountData(null, null, null), Profile(null, null, null, null, null, null));
-    expect(user.userId, 0);
+    final User user = User('id', AccountData(null, null, null), Profile(null, null, null, null, null, null));
+    expect(user.userId, 'id');
     expect(user.accountData, isNot(null));
     expect(user.profile, isNot(null));
   });

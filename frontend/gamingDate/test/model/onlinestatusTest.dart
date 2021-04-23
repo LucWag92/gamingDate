@@ -4,8 +4,8 @@ import 'package:gamingDate/model/onlinestatus.dart';
 
 void main() {
   test('Constructor and getter', () {
-    final OnlineStatus onlineStatus = OnlineStatus(0, OnlineStatusEnum.online);
-    expect(onlineStatus.onlineStatusId, 0);
+    final OnlineStatus onlineStatus = OnlineStatus('id', OnlineStatusEnum.online);
+    expect(onlineStatus.onlineStatusId, 'id');
     expect(onlineStatus.onlineStatus, OnlineStatusEnum.online);
   });
 }
