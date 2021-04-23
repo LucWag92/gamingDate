@@ -22,5 +22,5 @@ jobs:
         java-version: '16.0.1'
         distribution: 'adopt'
     - name: Build with Maven
-      working-directory: ./backend/gamingDate
+      working-directory: ./backend/gamingdate
       run: mvn -B package --file pom.xml
