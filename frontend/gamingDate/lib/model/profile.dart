@@ -2,7 +2,7 @@ import 'package:gamingDate/model/game.dart';
 import 'package:gamingDate/model/onlinestatus.dart';
 
 class Profile {
-  int _profileId;
+  String _profileId;
   OnlineStatus _onlineStatus;
   String _profileName;
   String _profileImageUrl;
@@ -12,7 +12,7 @@ class Profile {
   Profile(this._profileId, this._onlineStatus, this._profileName,
       this._profileImageUrl, this._gameDates, this._friendList);
 
-  int get profileId => _profileId;
+  String get profileId => _profileId;
 
   OnlineStatus get onlineStatus => _onlineStatus;
 

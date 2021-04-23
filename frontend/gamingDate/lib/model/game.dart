@@ -1,5 +1,5 @@
 class Game {
-  int _gameId;
+  String _gameId;
   String _gameName;
   String _gameLogoUrl;
   DateTime _startTime;
@@ -9,7 +9,7 @@ class Game {
   Game(this._gameId, this._gameName, this._gameLogoUrl, this._startTime,
       this._endTime, this._rating);
 
-  int get gameId => _gameId;
+  String get gameId => _gameId;
 
   String get gameName => _gameName;
 

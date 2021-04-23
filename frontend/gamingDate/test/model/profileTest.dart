@@ -6,9 +6,9 @@ import 'package:gamingDate/model/user.dart';
 
 void main() {
   test('Constructor and getter', () {
-    final Profile profile = Profile(0, OnlineStatus(null, null), 'profileName',
+    final Profile profile = Profile('id', OnlineStatus(null, null), 'profileName',
         '_profileImageUrl', List.empty(), List.empty());
-    expect(profile.profileId, 0);
+    expect(profile.profileId, 'id');
     expect(profile.onlineStatus, isNot(null));
     expect(profile.profileName, 'profileName');
     expect(profile.profileImageUrl, '_profileImageUrl');
