@@ -1,4 +1,4 @@
-package com.gamingdate.classes;
+package com.gamingdate.model;
 import lombok.Data;
 import lombok.NonNull;
 
