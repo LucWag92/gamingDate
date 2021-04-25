@@ -11,6 +11,6 @@ public class Profile {
     @NonNull String onlineStatusId;
     @NonNull String profileName;
     String profileImageURL;
-    @NonNull List<Game> gameDates;
-    @NonNull List<Profile> friendProfiles;
+    @NonNull List<String> gameDateIds;
+    @NonNull List<String> friendProfileIds;
 }

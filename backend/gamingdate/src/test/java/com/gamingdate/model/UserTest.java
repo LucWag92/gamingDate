@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class UserTest {
 
-    User user = new User("0", 0, 0);
+    User user = new User("0", "0", "0");
 
     @Test
     void getUserId() {
@@ -15,12 +15,12 @@ class UserTest {
 
     @Test
     void getAccountDataId() {
-        assertThat(user.getAccountDataId()).isEqualTo(0);
+        assertThat(user.getAccountDataId()).isEqualTo("0");
     }
 
     @Test
     void getProfileId() {
-        assertThat(user.getProfileId()).isEqualTo(0);
+        assertThat(user.getProfileId()).isEqualTo("0");
     }
 
     @Test
@@ -31,13 +31,13 @@ class UserTest {
 
     @Test
     void setAccountDataId() {
-        user.setAccountDataId(1);
-        assertThat(user.getAccountDataId()).isEqualTo(1);
+        user.setAccountDataId("1");
+        assertThat(user.getAccountDataId()).isEqualTo("1");
     }
 
     @Test
     void setProfileId() {
-        user.setProfileId(1);
-        assertThat(user.getProfileId()).isEqualTo(1);
+        user.setProfileId("1");
+        assertThat(user.getProfileId()).isEqualTo("1");
     }
 }
