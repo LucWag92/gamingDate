@@ -7,8 +7,8 @@ public class User {
     @NonNull
     String userId;
     @NonNull
-    String accountDataId;
+    Integer accountDataId;
     @NonNull
-    String profileId;
+    Integer profileId;
 }
 

@@ -5,7 +5,9 @@ import lombok.NonNull;
 @Data
 public class AccountData {
     @NonNull
-    String accountDataId;
+    Integer accountDataId;
+    @NonNull
     String eMail;
-    int hashedPassword;  
+    @NonNull
+    String hashedPassword;  
 }

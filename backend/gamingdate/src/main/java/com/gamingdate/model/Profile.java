@@ -1,5 +1,7 @@
 package com.gamingdate.model;
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.NonNull;
 
@@ -9,6 +11,6 @@ public class Profile {
     @NonNull String onlineStatusId;
     @NonNull String profileName;
     String profileImageURL;
-    String gameDateId;
-    String friendListId;
+    @NonNull List<Game> gameDates;
+    @NonNull List<Profile> friendProfiles;
 }
