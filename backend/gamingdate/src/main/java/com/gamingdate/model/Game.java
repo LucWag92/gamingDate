@@ -12,5 +12,5 @@ public class Game {
     String gameLogoURL;
     @NonNull Timestamp startTime;
     @NonNull Timestamp endTime;
-    @NonNull Integer rating;
+    Integer rating;
 }

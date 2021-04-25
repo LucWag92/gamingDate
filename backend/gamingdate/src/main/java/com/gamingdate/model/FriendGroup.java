@@ -8,7 +8,7 @@ import lombok.NonNull;
 @Data
 public class FriendGroup {
     @NonNull String friendGroupId;
-    @NonNull List<Profile> friendProfiles;
+    @NonNull List<String> friendProfileIds;
     @NonNull String friendGroupName;
     String lastFavouriteGame;
 }
