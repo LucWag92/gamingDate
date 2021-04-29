@@ -1,10 +1,24 @@
 package com.gamingdate.model;
-import lombok.Data;
-import lombok.NonNull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.NonNull;
+@Entity
+@Table(name="accountdata")
 @Data
 public class AccountData {
-    @NonNull String accountDataId;
-    @NonNull String eMail;
-    @NonNull String hashedPassword;  
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Getter
+    Long accountdataid;
+    @NonNull String email;
+    @NonNull String hashedpassword;  
+    public AccountData(){
+        super();
+     }
 }

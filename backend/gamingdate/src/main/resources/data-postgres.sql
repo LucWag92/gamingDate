@@ -1,0 +1,1 @@
+INSERT INTO accountdata(email, hashedpassword) VALUES ('TestMail@web.de', 'ABC');
