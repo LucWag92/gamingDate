@@ -6,4 +6,5 @@ import com.gamingdate.model.AccountData;
 
 public interface IAccountDataService {
     List<AccountData> findAll();
+    AccountData findById(Long id);
 }

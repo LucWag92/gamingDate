@@ -2,6 +2,7 @@ package com.gamingdate.service;
 
 import java.util.List;
 
+import com.gamingdate.exceptions.exception.AccountDataNotFoundException;
 import com.gamingdate.model.AccountData;
 import com.gamingdate.repository.AccountDataRepository;
 
@@ -14,9 +15,12 @@ public class AccountDataService implements IAccountDataService{
     private AccountDataRepository repository;
     @Override
     public List<AccountData> findAll() {
-
         var accountDatas = (List<AccountData>) repository.findAll();
-
         return accountDatas;
+    }
+    @Override
+    public AccountData findById(Long id){
+        var accountData = (AccountData) repository.findById(id).orElseThrow(AccountDataNotFoundException::new);;
+        return accountData;
     }
 }

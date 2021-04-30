@@ -7,19 +7,26 @@ import com.gamingdate.model.AccountData;
 import com.gamingdate.service.IAccountDataService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor //
 public class GamingDateController {
     @Autowired
     private IAccountDataService accountDataService;
-    @GetMapping("/allAccountData")
-    public String findAccountData(Model model) {
+    @GetMapping("/accountData/all")
+    public List<AccountData> findAllAccountData() {
         var accountDatas = (List<AccountData>) accountDataService.findAll();
-        model.addAttribute("accountDatas", accountDatas);
-        return "allAccountData";
+        return accountDatas;
+    }
+    @GetMapping("/accountData/{id}")
+    public AccountData getAccountData(@PathVariable long id) {
+        var accountData = (AccountData) accountDataService.findById(id);
+        return accountData;
     }
     
 }
