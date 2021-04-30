@@ -11,16 +11,20 @@ import lombok.NonNull;
 @Entity
 @Table(name="accountdata")
 @Data
-public class AccountData {
+public class ModelAccountData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="accountdataid")
     Long accountDataId;
     @Column(name="email")
     @NonNull String eMail;
     @Column(name="hashedpassword")
     @NonNull String hashedPassword;  
-    public AccountData(){
-        super();
-     }
+    // default connstructor which is only used for JPA
+    protected ModelAccountData(){}
+    public ModelAccountData(String eMail, String hashedPassword){
+        this.eMail = eMail;
+        this.hashedPassword = hashedPassword;
+    }
+    
 }

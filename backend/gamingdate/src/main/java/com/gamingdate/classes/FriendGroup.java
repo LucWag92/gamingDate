@@ -1,4 +1,4 @@
-package com.gamingdate.model;
+package com.gamingdate.classes;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 @Data
 public class FriendGroup {
-    @NonNull String friendGroupId;
-    @NonNull List<String> friendProfileIds;
+    @NonNull Long friendGroupId;
+    @NonNull List<Profile> friendProfiles;
     @NonNull String friendGroupName;
     String lastFavouriteGame;
 }

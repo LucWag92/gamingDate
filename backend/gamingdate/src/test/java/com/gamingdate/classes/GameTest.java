@@ -1,4 +1,4 @@
-package com.gamingdate.model;
+package com.gamingdate.classes;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,12 +7,12 @@ import java.sql.Timestamp;
 public class GameTest {
     Timestamp startTime = Timestamp.valueOf("2021-01-01 10:10:10.0");
     Timestamp endTime = Timestamp.valueOf("2021-01-01 11:10:10.0");
-    Game game = new Game("0", "gameName", startTime, endTime);
+    Game game = new Game(1L, "gameName", startTime, endTime);
 
     // Getter
     @Test
     void getGameId() {
-        assertThat(game.getGameId()).isEqualTo("0");
+        assertThat(game.getGameId()).isEqualTo(1L);
     }
     @Test
     void getGameName() {
@@ -39,8 +39,8 @@ public class GameTest {
     Timestamp endTime2 = Timestamp.valueOf("2020-01-01 11:10:10.0");
     @Test
     void setGameId() {
-        game.setGameId("1");
-        assertThat(game.getGameId()).isEqualTo("1");
+        game.setGameId(2L);
+        assertThat(game.getGameId()).isEqualTo(2L);
     }
     @Test
     void setGameName() {

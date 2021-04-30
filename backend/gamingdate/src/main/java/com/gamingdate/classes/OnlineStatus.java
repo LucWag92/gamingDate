@@ -1,10 +1,10 @@
-package com.gamingdate.model;
+package com.gamingdate.classes;
 
 import lombok.Data;
 import lombok.NonNull;
 
 @Data
 public class OnlineStatus {
-    @NonNull String onlineStatusId;
+    @NonNull Long onlineStatusId;
     @NonNull String status;
 }
