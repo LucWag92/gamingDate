@@ -9,7 +9,7 @@ import java.util.List;
 
 
 class UserTest {
-    AccountData accountData = new AccountData(1L);
+    AccountData accountData = new AccountData(1L, "mail", "pw");
     OnlineStatus onlineStatus = new OnlineStatus(1L, "status");
     List<Game> games = new ArrayList<Game>();
     List<Profile> friendProfiles = new ArrayList<Profile>();
@@ -39,7 +39,7 @@ class UserTest {
 
     @Test
     void setAccountData() {
-        AccountData accountData2 = new AccountData(2L);
+        AccountData accountData2 = new AccountData(2L, "mail2", "pw2");
         user.setAccountData(accountData2);
         assertThat(user.getAccountData()).isEqualTo(accountData2);
     }

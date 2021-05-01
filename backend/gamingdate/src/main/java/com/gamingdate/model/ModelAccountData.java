@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.Data;
 import lombok.NonNull;
@@ -17,8 +18,10 @@ public class ModelAccountData {
     @Column(name="accountdataid")
     Long accountDataId;
     @Column(name="email")
+    @NotBlank(message = "EMail is mandatory")
     @NonNull String eMail;
     @Column(name="hashedpassword")
+    @NotBlank(message = "Password is mandatory")
     @NonNull String hashedPassword;  
     // default connstructor which is only used for JPA
     protected ModelAccountData(){}

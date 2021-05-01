@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class AccountDataTest {
-    AccountData aD = new AccountData(1L);
+    AccountData aD = new AccountData(1L, "mail", "pw");
     
     @Test
     void getAccounDataId() {
@@ -13,12 +13,12 @@ public class AccountDataTest {
     }
     @Test
     void getEMail() {
-        assertThat(aD.getEMail()).isNull();
+        assertThat(aD.getEMail()).isEqualTo("mail");
     }
     
     @Test
     void getPassword() {
-        assertThat(aD.getHashedPassword()).isNull();
+        assertThat(aD.getHashedPassword()).isEqualTo("pw");
     }
     // Setter
     @Test

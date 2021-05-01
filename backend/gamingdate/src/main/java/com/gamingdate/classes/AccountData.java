@@ -6,6 +6,6 @@ import lombok.NonNull;
 @Data
 public class AccountData {
     @NonNull Long accountDataId;
-    String eMail;
-    String hashedPassword;
+    @NonNull String eMail;
+    @NonNull String hashedPassword;
 }

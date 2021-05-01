@@ -1,8 +1,8 @@
 package com.gamingdate.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
-import com.gamingdate.exceptions.exception.AccountDataNotFoundException;
 import com.gamingdate.model.ModelAccountData;
 import com.gamingdate.repository.AccountDataRepository;
 
@@ -20,7 +20,7 @@ public class AccountDataService implements IAccountDataService{
     }
     @Override
     public ModelAccountData findById(Long id){
-        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(AccountDataNotFoundException::new);
+        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
         return accountData;
     }
     @Override
@@ -36,7 +36,7 @@ public class AccountDataService implements IAccountDataService{
     
     @Override
     public boolean deleteById(Long id) {
-        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(AccountDataNotFoundException::new);
+        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
         repository.delete(accountData);
         return true;
     }

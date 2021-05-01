@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelAccountData;
-import com.gamingdate.service.IAccountDataService;
+import com.gamingdate.model.ModelGame;
+import com.gamingdate.service.IGameService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,34 +28,34 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/accountData")
-public class AccountDataController {
+@RequestMapping("api/v1/game")
+public class GameController {
     @Autowired
-    private IAccountDataService accountDataService;
+    private IGameService GameService;
     @GetMapping
-    public List<ModelAccountData> finAll() {
-        var accountDatas = (List<ModelAccountData>) accountDataService.findAll();
-        return accountDatas;
+    public List<ModelGame> finAll() {
+        var Games = (List<ModelGame>) GameService.findAll();
+        return Games;
     }
     @GetMapping(path = "{id}")
-    public ModelAccountData findById(@PathVariable long id) {
-        var accountData = (ModelAccountData) accountDataService.findById(id);
-        return accountData;
+    public ModelGame findById(@PathVariable long id) {
+        var Game = (ModelGame) GameService.findById(id);
+        return Game;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelAccountData accountData) {
-        return accountDataService.addOne(accountData);
+    public boolean addOne(@Valid @RequestBody ModelGame Game) {
+        return GameService.addOne(Game);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelAccountData accountData) {
-        return accountDataService.updateOne(accountData);
+    public boolean updateOne(@RequestBody ModelGame Game) {
+        return GameService.updateOne(Game);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return accountDataService.deleteById(id);
+        return GameService.deleteById(id);
     }
 
-
+    
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(

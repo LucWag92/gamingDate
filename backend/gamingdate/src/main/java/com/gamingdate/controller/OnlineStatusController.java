@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelAccountData;
-import com.gamingdate.service.IAccountDataService;
+import com.gamingdate.model.ModelOnlineStatus;
+import com.gamingdate.service.IOnlineStatusService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,34 +28,34 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/accountData")
-public class AccountDataController {
+@RequestMapping("api/v1/onlineStatus")
+public class OnlineStatusController {
     @Autowired
-    private IAccountDataService accountDataService;
+    private IOnlineStatusService OnlineStatusService;
     @GetMapping
-    public List<ModelAccountData> finAll() {
-        var accountDatas = (List<ModelAccountData>) accountDataService.findAll();
-        return accountDatas;
+    public List<ModelOnlineStatus> finAll() {
+        var OnlineStatuss = (List<ModelOnlineStatus>) OnlineStatusService.findAll();
+        return OnlineStatuss;
     }
     @GetMapping(path = "{id}")
-    public ModelAccountData findById(@PathVariable long id) {
-        var accountData = (ModelAccountData) accountDataService.findById(id);
-        return accountData;
+    public ModelOnlineStatus findById(@PathVariable long id) {
+        var OnlineStatus = (ModelOnlineStatus) OnlineStatusService.findById(id);
+        return OnlineStatus;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelAccountData accountData) {
-        return accountDataService.addOne(accountData);
+    public boolean addOne(@Valid @RequestBody ModelOnlineStatus OnlineStatus) {
+        return OnlineStatusService.addOne(OnlineStatus);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelAccountData accountData) {
-        return accountDataService.updateOne(accountData);
+    public boolean updateOne(@RequestBody ModelOnlineStatus OnlineStatus) {
+        return OnlineStatusService.updateOne(OnlineStatus);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return accountDataService.deleteById(id);
+        return OnlineStatusService.deleteById(id);
     }
 
-
+    
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(

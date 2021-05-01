@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelAccountData;
-import com.gamingdate.service.IAccountDataService;
+import com.gamingdate.model.ModelProfile;
+import com.gamingdate.service.IProfileService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,34 +28,34 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/accountData")
-public class AccountDataController {
+@RequestMapping("api/v1/profile")
+public class ProfileController {
     @Autowired
-    private IAccountDataService accountDataService;
+    private IProfileService ProfileService;
     @GetMapping
-    public List<ModelAccountData> finAll() {
-        var accountDatas = (List<ModelAccountData>) accountDataService.findAll();
-        return accountDatas;
+    public List<ModelProfile> finAll() {
+        var Profiles = (List<ModelProfile>) ProfileService.findAll();
+        return Profiles;
     }
     @GetMapping(path = "{id}")
-    public ModelAccountData findById(@PathVariable long id) {
-        var accountData = (ModelAccountData) accountDataService.findById(id);
-        return accountData;
+    public ModelProfile findById(@PathVariable long id) {
+        var Profile = (ModelProfile) ProfileService.findById(id);
+        return Profile;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelAccountData accountData) {
-        return accountDataService.addOne(accountData);
+    public boolean addOne(@Valid @RequestBody ModelProfile Profile) {
+        return ProfileService.addOne(Profile);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelAccountData accountData) {
-        return accountDataService.updateOne(accountData);
+    public boolean updateOne(@RequestBody ModelProfile Profile) {
+        return ProfileService.updateOne(Profile);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return accountDataService.deleteById(id);
+        return ProfileService.deleteById(id);
     }
 
-
+    
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(

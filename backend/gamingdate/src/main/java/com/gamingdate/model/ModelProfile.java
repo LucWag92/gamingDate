@@ -16,8 +16,8 @@ import lombok.NonNull;
 public class ModelProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="onlinestatusid")
-    Long onlineStatusId;
+    @Column(name="profileid")
+    Long profileId;
     @Column(name="onlinestatusmappingid")
     @NonNull Long onlineStatusMappingId;
     @Column(name="profilename")

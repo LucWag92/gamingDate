@@ -11,11 +11,12 @@ import lombok.Data;
 import lombok.NonNull;
 
 @Entity
-@Table(name="user")
+@Table(name="usertable")
 @Data
 public class ModelUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="userid")
     Long userId;
     @Column(name="accountdatamappingid")
     @NonNull Long accountDataMappingId;
