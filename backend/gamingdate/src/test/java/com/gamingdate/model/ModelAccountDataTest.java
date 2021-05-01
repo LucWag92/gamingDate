@@ -26,6 +26,6 @@ public class ModelAccountDataTest {
         ModelAccountData accountData = new ModelAccountData("mail", "pw");
         entityManager.persist(accountData);
         List<ModelAccountData> accountDatas= (List<ModelAccountData>)repository.findAll();
-        assertThat(accountDatas.get(1)).isEqualTo(accountData);
+        assertThat(accountDatas.get(0)).isEqualTo(accountData);
     }
 }
