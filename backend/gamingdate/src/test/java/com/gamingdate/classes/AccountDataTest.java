@@ -1,27 +1,30 @@
-package com.gamingdate.model;
+package com.gamingdate.classes;
+
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 public class AccountDataTest {
-    AccountData aD = new AccountData("0", "mail", "pw");
+    AccountData aD = new AccountData(1L, "mail", "pw");
+    
     @Test
-    // Getter
-    void getAccountID() {
-        assertThat(aD.getAccountDataId()).isEqualTo("0");
+    void getAccounDataId() {
+        assertThat(aD.getAccountDataId()).isEqualTo(1L);
     }
     @Test
     void getEMail() {
         assertThat(aD.getEMail()).isEqualTo("mail");
     }
+    
     @Test
     void getPassword() {
         assertThat(aD.getHashedPassword()).isEqualTo("pw");
     }
     // Setter
     @Test
-    void setAccounID() {
-        aD.setAccountDataId("1");
-        assertThat(aD.getAccountDataId()).isEqualTo("1");
+    void setAccounDataId() {
+        aD.setAccountDataId(2L);
+        assertThat(aD.getAccountDataId()).isEqualTo(2L);
     }
     @Test
     void setEMail() {
