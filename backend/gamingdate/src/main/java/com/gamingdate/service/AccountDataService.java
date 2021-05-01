@@ -20,7 +20,24 @@ public class AccountDataService implements IAccountDataService{
     }
     @Override
     public ModelAccountData findById(Long id){
-        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(AccountDataNotFoundException::new);;
+        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(AccountDataNotFoundException::new);
         return accountData;
+    }
+    @Override
+    public boolean addOne(ModelAccountData newModelAccountData) {
+        repository.save(newModelAccountData);
+        return true;
+    }
+    @Override
+    public boolean updateOne(ModelAccountData updatedModelAccountData) {
+        repository.save(updatedModelAccountData);
+        return true;
+    }
+    
+    @Override
+    public boolean deleteById(Long id) {
+        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(AccountDataNotFoundException::new);
+        repository.delete(accountData);
+        return true;
     }
 }
