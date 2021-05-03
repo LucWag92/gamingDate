@@ -3,7 +3,7 @@ package com.gamingdate.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.gamingdate.model.ModelOnlineStatus;
+import com.gamingdate.model.OnlineStatus;
 import com.gamingdate.repository.OnlineStatusRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,30 +14,30 @@ public class OnlineStatusService implements IOnlineStatusService{
     @Autowired
     private OnlineStatusRepository repository;
     @Override
-    public List<ModelOnlineStatus> findAll() {
-        var OnlineStatuss = (List<ModelOnlineStatus>) repository.findAll();
-        return OnlineStatuss;
+    public List<OnlineStatus> findAll() {
+        var onlineStatuss = (List<OnlineStatus>) repository.findAll();
+        return onlineStatuss;
     }
     @Override
-    public ModelOnlineStatus findById(Long id){
-        var OnlineStatus = (ModelOnlineStatus) repository.findById(id).orElseThrow(NoSuchElementException::new);
-        return OnlineStatus;
+    public OnlineStatus findById(Long id){
+        var onlineStatus = (OnlineStatus) repository.findById(id).orElseThrow(NoSuchElementException::new);
+        return onlineStatus;
     }
     @Override
-    public boolean addOne(ModelOnlineStatus newModelOnlineStatus) {
-        repository.save(newModelOnlineStatus);
+    public boolean addOne(OnlineStatus newOnlineStatus) {
+        repository.save(newOnlineStatus);
         return true;
     }
     @Override
-    public boolean updateOne(ModelOnlineStatus updatedModelOnlineStatus) {
-        repository.save(updatedModelOnlineStatus);
+    public boolean updateOne(OnlineStatus updatedOnlineStatus) {
+        repository.save(updatedOnlineStatus);
         return true;
     }
     
     @Override
     public boolean deleteById(Long id) {
-        var OnlineStatus = (ModelOnlineStatus) repository.findById(id).orElseThrow(NoSuchElementException::new);
-        repository.delete(OnlineStatus);
+        var onlineStatus = (OnlineStatus) repository.findById(id).orElseThrow(NoSuchElementException::new);
+        repository.delete(onlineStatus);
         return true;
     }
 }

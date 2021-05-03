@@ -2,12 +2,12 @@ package com.gamingdate.service;
 
 import java.util.List;
 
-import com.gamingdate.model.ModelProfile;
+import com.gamingdate.model.Profile;
 
 public interface IProfileService {
-    List<ModelProfile> findAll();
-    ModelProfile findById(Long id);
-    boolean addOne(ModelProfile newModelProfile);
-    boolean updateOne(ModelProfile updatedModelProfile);
+    List<Profile> findAll();
+    Profile findById(Long id);
+    boolean addOne(Profile newModelProfile);
+    boolean updateOne(Profile updatedModelProfile);
     boolean deleteById(Long id);
 }

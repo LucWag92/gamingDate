@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelGame;
+import com.gamingdate.model.Game;
 import com.gamingdate.service.IGameService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,21 +33,21 @@ public class GameController {
     @Autowired
     private IGameService GameService;
     @GetMapping
-    public List<ModelGame> finAll() {
-        var Games = (List<ModelGame>) GameService.findAll();
+    public List<Game> finAll() {
+        var Games = (List<Game>) GameService.findAll();
         return Games;
     }
     @GetMapping(path = "{id}")
-    public ModelGame findById(@PathVariable long id) {
-        var Game = (ModelGame) GameService.findById(id);
+    public Game findById(@PathVariable long id) {
+        var Game = (Game) GameService.findById(id);
         return Game;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelGame Game) {
+    public boolean addOne(@Valid @RequestBody Game Game) {
         return GameService.addOne(Game);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelGame Game) {
+    public boolean updateOne(@RequestBody Game Game) {
         return GameService.updateOne(Game);
     }
     @DeleteMapping(path = "{id}")
