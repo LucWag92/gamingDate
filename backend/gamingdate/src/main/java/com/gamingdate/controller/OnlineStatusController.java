@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelOnlineStatus;
+import com.gamingdate.model.OnlineStatus;
 import com.gamingdate.service.IOnlineStatusService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,22 +33,22 @@ public class OnlineStatusController {
     @Autowired
     private IOnlineStatusService OnlineStatusService;
     @GetMapping
-    public List<ModelOnlineStatus> finAll() {
-        var OnlineStatuss = (List<ModelOnlineStatus>) OnlineStatusService.findAll();
-        return OnlineStatuss;
+    public List<OnlineStatus> finAll() {
+        var onlineStatuss = (List<OnlineStatus>) OnlineStatusService.findAll();
+        return onlineStatuss;
     }
     @GetMapping(path = "{id}")
-    public ModelOnlineStatus findById(@PathVariable long id) {
-        var OnlineStatus = (ModelOnlineStatus) OnlineStatusService.findById(id);
-        return OnlineStatus;
+    public OnlineStatus findById(@PathVariable long id) {
+        var onlineStatus = (OnlineStatus) OnlineStatusService.findById(id);
+        return onlineStatus;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelOnlineStatus OnlineStatus) {
-        return OnlineStatusService.addOne(OnlineStatus);
+    public boolean addOne(@Valid @RequestBody OnlineStatus onlineStatus) {
+        return OnlineStatusService.addOne(onlineStatus);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelOnlineStatus OnlineStatus) {
-        return OnlineStatusService.updateOne(OnlineStatus);
+    public boolean updateOne(@RequestBody OnlineStatus onlineStatus) {
+        return OnlineStatusService.updateOne(onlineStatus);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {

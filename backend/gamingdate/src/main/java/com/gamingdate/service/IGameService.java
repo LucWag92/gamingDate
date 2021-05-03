@@ -2,12 +2,12 @@ package com.gamingdate.service;
 
 import java.util.List;
 
-import com.gamingdate.model.ModelGame;
+import com.gamingdate.model.Game;
 
 public interface IGameService {
-    List<ModelGame> findAll();
-    ModelGame findById(Long id);
-    boolean addOne(ModelGame newModelGame);
-    boolean updateOne(ModelGame updatedModelGame);
+    List<Game> findAll();
+    Game findById(Long id);
+    boolean addOne(Game newModelGame);
+    boolean updateOne(Game updatedModelGame);
     boolean deleteById(Long id);
 }
