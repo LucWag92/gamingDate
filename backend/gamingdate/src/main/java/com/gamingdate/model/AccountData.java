@@ -31,8 +31,8 @@ public class AccountData {
     @NotBlank(message = "Password is mandatory and must be at least 8 characters long")
     private String hashedPassword; 
 
-    @OneToOne(mappedBy = "accountData")
-    private User user;
+    // @OneToOne(mappedBy = "accountData")
+    // private User user;
 
     // default connstructor which is only used for JPA
     protected AccountData(){}

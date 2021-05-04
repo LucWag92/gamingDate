@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Entity
 @Table(
@@ -24,35 +24,38 @@ public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="profileid")
-    Long profileId;
+    private Long profileId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="onlinestatusid", referencedColumnName = "onlinestatusid")
-    @NonNull OnlineStatus onlineStatus;
+    @NotNull 
+    private OnlineStatus onlineStatus;
 
     @Column(name="profilename")
     @NotBlank(message = "profileName is mandatory")
     private String profileName;
 
     @Column(name="profileimageurl")
-    private String profileImageURL;
+    private String profileImageURL = null;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="friendid")
-	private Profile friend;
-
-    @OneToMany(mappedBy = "friend")
-    @NonNull 
+    @Column(name="friendprofiles")
+    @ManyToMany
+    @JoinTable(
+        name = "friendprofiles", 
+        joinColumns = @JoinColumn(name = "profileid"), 
+        inverseJoinColumns = @JoinColumn(name = "friendprofilesid"),
+        uniqueConstraints=@UniqueConstraint(columnNames={"friendprofilesid","profileid"})
+    )
+    @NotNull 
     private List<Profile> friendprofiles = new ArrayList<Profile>();
 
     @ManyToMany(mappedBy = "memberProfiles")
-    @NonNull List<Clan> clans = new ArrayList<Clan>();
+    @NotNull 
+    private List<Clan> clans = new ArrayList<Clan>();
 
     @ManyToMany(mappedBy = "gamerProfiles")
-    @NonNull List<Game> games;
-
-    @OneToOne(mappedBy = "profile")
-    private User user;
+    @NotNull 
+    private List<Game> games = new ArrayList<Game>();
 
     // default connstructor which is only used for JPA
     protected Profile(){}

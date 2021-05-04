@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Entity
 @Table(
@@ -34,11 +34,11 @@ public class Game {
     private String gameLogoURL; 
 
     @Column(name="starttime")
-    @NonNull 
+    @NotNull 
     private Timestamp startTime;
 
     @Column(name="endTime")
-    @NonNull
+    @NotNull
     private Timestamp endtime;
 
     @Column(name="rating")
@@ -49,9 +49,10 @@ public class Game {
     @JoinTable(
         name = "gamerprofiles", 
         joinColumns = @JoinColumn(name = "gameid"), 
-        inverseJoinColumns = @JoinColumn(name = "profileid")
+        inverseJoinColumns = @JoinColumn(name = "profileid"),
+        uniqueConstraints=@UniqueConstraint(columnNames={"gameid","profileid"})
     )
-    @NonNull
+    @NotNull
     private List<Profile> gamerProfiles;
 
     // default connstructor which is only used for JPA

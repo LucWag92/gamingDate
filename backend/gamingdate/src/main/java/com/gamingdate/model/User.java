@@ -1,9 +1,9 @@
 package com.gamingdate.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Entity
 @Table(name="usertable")
@@ -12,15 +12,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="userid")
-    Long userId;
+    private Long userId;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="accountdataid", referencedColumnName = "accountdataid")
+    @NotNull 
     private AccountData accountData;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="profileid", referencedColumnName = "profileid")
-    @NonNull 
+    @NotNull 
     private Profile profile;
 
     // default connstructor which is only used for JPA

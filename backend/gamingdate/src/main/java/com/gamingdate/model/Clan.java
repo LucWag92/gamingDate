@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Entity
 @Table(
@@ -38,9 +38,10 @@ public class Clan {
     @JoinTable(
         name = "memberprofiles", 
         joinColumns = @JoinColumn(name = "profileid"), 
-        inverseJoinColumns = @JoinColumn(name = "clanid")
+        inverseJoinColumns = @JoinColumn(name = "clanid"),
+        uniqueConstraints=@UniqueConstraint(columnNames={"clanid","profileid"})
     )
-    @NonNull
+    @NotNull
     private List<Profile> memberProfiles;
 
     // default connstructor which is only used for JPA

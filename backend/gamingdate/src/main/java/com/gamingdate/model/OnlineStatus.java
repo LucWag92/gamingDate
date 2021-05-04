@@ -19,8 +19,9 @@ public class OnlineStatus {
     @NotBlank(message = "status is mandatory")
     private String status;
 
-    @OneToOne(mappedBy = "onlineStatus")
-    private Profile profile;
+    // @OneToOne(mappedBy = "onlineStatus")
+    // @NotNull
+    // private Profile profile;
 
     // default connstructor which is only used for JPA
     protected OnlineStatus(){}

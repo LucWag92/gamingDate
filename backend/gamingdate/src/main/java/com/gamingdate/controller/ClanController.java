@@ -29,7 +29,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("api/v1/friendGroup")
-public class FriendGroupController {
+public class ClanController {
     @Autowired
     private IClanService ClanService;
     @GetMapping
@@ -43,12 +43,12 @@ public class FriendGroupController {
         return FriendGroup;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody Clan FriendGroup) {
-        return ClanService.addOne(FriendGroup);
+    public boolean addOne(@Valid @RequestBody Clan clan) {
+        return ClanService.addOne(clan);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody Clan FriendGroup) {
-        return ClanService.updateOne(FriendGroup);
+    public boolean updateOne(@RequestBody Clan clan) {
+        return ClanService.updateOne(clan);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
