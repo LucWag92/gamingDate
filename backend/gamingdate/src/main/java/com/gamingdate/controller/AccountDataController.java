@@ -4,22 +4,13 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelAccountData;
+import com.gamingdate.model.AccountData;
 import com.gamingdate.service.IAccountDataService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -33,21 +24,21 @@ public class AccountDataController {
     @Autowired
     private IAccountDataService accountDataService;
     @GetMapping
-    public List<ModelAccountData> finAll() {
-        var accountDatas = (List<ModelAccountData>) accountDataService.findAll();
+    public List<AccountData> finAll() {
+        var accountDatas = (List<AccountData>) accountDataService.findAll();
         return accountDatas;
     }
     @GetMapping(path = "{id}")
-    public ModelAccountData findById(@PathVariable long id) {
-        var accountData = (ModelAccountData) accountDataService.findById(id);
+    public AccountData findById(@PathVariable long id) {
+        var accountData = (AccountData) accountDataService.findById(id);
         return accountData;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelAccountData accountData) {
+    public boolean addOne(@Valid @RequestBody AccountData accountData) {
         return accountDataService.addOne(accountData);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelAccountData accountData) {
+    public boolean updateOne(@RequestBody AccountData accountData) {
         return accountDataService.updateOne(accountData);
     }
     @DeleteMapping(path = "{id}")

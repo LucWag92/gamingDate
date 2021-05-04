@@ -1,11 +1,11 @@
 package com.gamingdate.repository;
 
-import com.gamingdate.model.ModelUser;
+import com.gamingdate.model.User;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<ModelUser, Long>{
+public interface UserRepository extends CrudRepository<User, Long>{
     
 }

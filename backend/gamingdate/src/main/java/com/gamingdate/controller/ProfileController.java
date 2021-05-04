@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelProfile;
+import com.gamingdate.model.Profile;
 import com.gamingdate.service.IProfileService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -33,22 +34,23 @@ public class ProfileController {
     @Autowired
     private IProfileService ProfileService;
     @GetMapping
-    public List<ModelProfile> finAll() {
-        var Profiles = (List<ModelProfile>) ProfileService.findAll();
-        return Profiles;
+    public List<Profile> finAll() {
+        var profiles = (List<Profile>) ProfileService.findAll();
+        return profiles;
     }
     @GetMapping(path = "{id}")
-    public ModelProfile findById(@PathVariable long id) {
-        var Profile = (ModelProfile) ProfileService.findById(id);
-        return Profile;
+    public Profile findById(@PathVariable long id) {
+        var profile = (Profile) ProfileService.findById(id);
+        return profile;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelProfile Profile) {
-        return ProfileService.addOne(Profile);
+    public boolean addOne(@Valid @RequestBody Profile profile) {
+        profile.setFriendprofiles(Arrays.asList());
+        return ProfileService.addOne(profile);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelProfile Profile) {
-        return ProfileService.updateOne(Profile);
+    public boolean updateOne(@RequestBody Profile profile) {
+        return ProfileService.updateOne(profile);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {

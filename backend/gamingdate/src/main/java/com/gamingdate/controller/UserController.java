@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelUser;
+import com.gamingdate.model.User;
 import com.gamingdate.service.IUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,22 +33,22 @@ public class UserController {
     @Autowired
     private IUserService UserService;
     @GetMapping
-    public List<ModelUser> finAll() {
-        var Users = (List<ModelUser>) UserService.findAll();
-        return Users;
+    public List<User> findAll() {
+        var users = (List<User>) UserService.findAll();
+        return users;
     }
     @GetMapping(path = "{id}")
-    public ModelUser findById(@PathVariable long id) {
-        var User = (ModelUser) UserService.findById(id);
-        return User;
+    public User findById(@PathVariable long id) {
+        var user = (User) UserService.findById(id);
+        return user;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelUser User) {
-        return UserService.addOne(User);
+    public boolean addOne(@Valid @RequestBody User user) {
+        return UserService.addOne(user);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelUser User) {
-        return UserService.updateOne(User);
+    public boolean updateOne(@RequestBody User user) {
+        return UserService.updateOne(user);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {

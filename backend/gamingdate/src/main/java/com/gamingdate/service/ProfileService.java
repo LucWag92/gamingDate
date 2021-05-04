@@ -3,7 +3,7 @@ package com.gamingdate.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.gamingdate.model.ModelProfile;
+import com.gamingdate.model.Profile;
 import com.gamingdate.repository.ProfileRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,29 +14,29 @@ public class ProfileService implements IProfileService{
     @Autowired
     private ProfileRepository repository;
     @Override
-    public List<ModelProfile> findAll() {
-        var Profiles = (List<ModelProfile>) repository.findAll();
+    public List<Profile> findAll() {
+        var Profiles = (List<Profile>) repository.findAll();
         return Profiles;
     }
     @Override
-    public ModelProfile findById(Long id){
-        var Profile = (ModelProfile) repository.findById(id).orElseThrow(NoSuchElementException::new);
+    public Profile findById(Long id){
+        var Profile = (Profile) repository.findById(id).orElseThrow(NoSuchElementException::new);
         return Profile;
     }
     @Override
-    public boolean addOne(ModelProfile newModelProfile) {
+    public boolean addOne(Profile newModelProfile) {
         repository.save(newModelProfile);
         return true;
     }
     @Override
-    public boolean updateOne(ModelProfile updatedModelProfile) {
+    public boolean updateOne(Profile updatedModelProfile) {
         repository.save(updatedModelProfile);
         return true;
     }
     
     @Override
     public boolean deleteById(Long id) {
-        var Profile = (ModelProfile) repository.findById(id).orElseThrow(NoSuchElementException::new);
+        var Profile = (Profile) repository.findById(id).orElseThrow(NoSuchElementException::new);
         repository.delete(Profile);
         return true;
     }

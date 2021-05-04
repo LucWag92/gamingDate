@@ -3,7 +3,7 @@ package com.gamingdate.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.gamingdate.model.ModelAccountData;
+import com.gamingdate.model.AccountData;
 import com.gamingdate.repository.AccountDataRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,29 +14,29 @@ public class AccountDataService implements IAccountDataService{
     @Autowired
     private AccountDataRepository repository;
     @Override
-    public List<ModelAccountData> findAll() {
-        var accountDatas = (List<ModelAccountData>) repository.findAll();
+    public List<AccountData> findAll() {
+        var accountDatas = (List<AccountData>) repository.findAll();
         return accountDatas;
     }
     @Override
-    public ModelAccountData findById(Long id){
-        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
+    public AccountData findById(Long id){
+        var accountData = (AccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
         return accountData;
     }
     @Override
-    public boolean addOne(ModelAccountData newModelAccountData) {
+    public boolean addOne(AccountData newModelAccountData) {
         repository.save(newModelAccountData);
         return true;
     }
     @Override
-    public boolean updateOne(ModelAccountData updatedModelAccountData) {
+    public boolean updateOne(AccountData updatedModelAccountData) {
         repository.save(updatedModelAccountData);
         return true;
     }
     
     @Override
     public boolean deleteById(Long id) {
-        var accountData = (ModelAccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
+        var accountData = (AccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
         repository.delete(accountData);
         return true;
     }

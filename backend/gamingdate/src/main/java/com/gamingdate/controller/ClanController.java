@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.gamingdate.model.ModelFriendGroup;
-import com.gamingdate.service.IFriendGroupService;
+import com.gamingdate.model.Clan;
+import com.gamingdate.service.IClanService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,30 +29,30 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("api/v1/friendGroup")
-public class FriendGroupController {
+public class ClanController {
     @Autowired
-    private IFriendGroupService FriendGroupService;
+    private IClanService ClanService;
     @GetMapping
-    public List<ModelFriendGroup> finAll() {
-        var FriendGroups = (List<ModelFriendGroup>) FriendGroupService.findAll();
+    public List<Clan> finAll() {
+        var FriendGroups = (List<Clan>) ClanService.findAll();
         return FriendGroups;
     }
     @GetMapping(path = "{id}")
-    public ModelFriendGroup findById(@PathVariable long id) {
-        var FriendGroup = (ModelFriendGroup) FriendGroupService.findById(id);
+    public Clan findById(@PathVariable long id) {
+        var FriendGroup = (Clan) ClanService.findById(id);
         return FriendGroup;
     }
     @PostMapping
-    public boolean addOne(@Valid @RequestBody ModelFriendGroup FriendGroup) {
-        return FriendGroupService.addOne(FriendGroup);
+    public boolean addOne(@Valid @RequestBody Clan clan) {
+        return ClanService.addOne(clan);
     }
     @PutMapping
-    public boolean updateOne(@RequestBody ModelFriendGroup FriendGroup) {
-        return FriendGroupService.updateOne(FriendGroup);
+    public boolean updateOne(@RequestBody Clan clan) {
+        return ClanService.updateOne(clan);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return FriendGroupService.deleteById(id);
+        return ClanService.deleteById(id);
     }
 
     

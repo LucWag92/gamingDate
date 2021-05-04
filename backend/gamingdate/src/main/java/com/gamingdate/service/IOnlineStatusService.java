@@ -2,12 +2,12 @@ package com.gamingdate.service;
 
 import java.util.List;
 
-import com.gamingdate.model.ModelOnlineStatus;
+import com.gamingdate.model.OnlineStatus;
 
 public interface IOnlineStatusService {
-    List<ModelOnlineStatus> findAll();
-    ModelOnlineStatus findById(Long id);
-    boolean addOne(ModelOnlineStatus newModelOnlineStatus);
-    boolean updateOne(ModelOnlineStatus updatedModelOnlineStatus);
+    List<OnlineStatus> findAll();
+    OnlineStatus findById(Long id);
+    boolean addOne(OnlineStatus newOnlineStatus);
+    boolean updateOne(OnlineStatus updatedOnlineStatus);
     boolean deleteById(Long id);
 }
