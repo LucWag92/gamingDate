@@ -28,31 +28,31 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/onlineStatus")
+@RequestMapping("admin/api/v1/onlineStatus")
 public class OnlineStatusController {
     @Autowired
-    private IOnlineStatusService OnlineStatusService;
+    private IOnlineStatusService onlineStatusService;
     @GetMapping
     public List<OnlineStatus> finAll() {
-        var onlineStatuss = (List<OnlineStatus>) OnlineStatusService.findAll();
+        var onlineStatuss = (List<OnlineStatus>) onlineStatusService.findAll();
         return onlineStatuss;
     }
     @GetMapping(path = "{id}")
     public OnlineStatus findById(@PathVariable long id) {
-        var onlineStatus = (OnlineStatus) OnlineStatusService.findById(id);
+        var onlineStatus = (OnlineStatus) onlineStatusService.findById(id);
         return onlineStatus;
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody OnlineStatus onlineStatus) {
-        return OnlineStatusService.addOne(onlineStatus);
+        return onlineStatusService.addOne(onlineStatus);
     }
     @PutMapping
     public boolean updateOne(@RequestBody OnlineStatus onlineStatus) {
-        return OnlineStatusService.updateOne(onlineStatus);
+        return onlineStatusService.updateOne(onlineStatus);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return OnlineStatusService.deleteById(id);
+        return onlineStatusService.deleteById(id);
     }
 
     

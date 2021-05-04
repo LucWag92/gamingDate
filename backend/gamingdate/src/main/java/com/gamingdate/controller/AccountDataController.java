@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/accountData")
+@RequestMapping("admin/api/v1/accountData")
 public class AccountDataController {
     @Autowired
     private IAccountDataService accountDataService;

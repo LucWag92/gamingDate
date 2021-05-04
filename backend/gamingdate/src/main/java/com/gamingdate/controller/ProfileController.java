@@ -29,32 +29,32 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/profile")
+@RequestMapping("admin/api/v1/profile")
 public class ProfileController {
     @Autowired
-    private IProfileService ProfileService;
+    private IProfileService profileService;
     @GetMapping
     public List<Profile> finAll() {
-        var profiles = (List<Profile>) ProfileService.findAll();
+        var profiles = (List<Profile>) profileService.findAll();
         return profiles;
     }
     @GetMapping(path = "{id}")
     public Profile findById(@PathVariable long id) {
-        var profile = (Profile) ProfileService.findById(id);
+        var profile = (Profile) profileService.findById(id);
         return profile;
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody Profile profile) {
         profile.setFriendprofiles(Arrays.asList());
-        return ProfileService.addOne(profile);
+        return profileService.addOne(profile);
     }
     @PutMapping
     public boolean updateOne(@RequestBody Profile profile) {
-        return ProfileService.updateOne(profile);
+        return profileService.updateOne(profile);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return ProfileService.deleteById(id);
+        return profileService.deleteById(id);
     }
 
     

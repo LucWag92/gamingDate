@@ -28,31 +28,31 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping("admin/api/v1/user")
 public class UserController {
     @Autowired
-    private IUserService UserService;
+    private IUserService userService;
     @GetMapping
     public List<User> findAll() {
-        var users = (List<User>) UserService.findAll();
+        var users = (List<User>) userService.findAll();
         return users;
     }
     @GetMapping(path = "{id}")
     public User findById(@PathVariable long id) {
-        var user = (User) UserService.findById(id);
+        var user = (User) userService.findById(id);
         return user;
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody User user) {
-        return UserService.addOne(user);
+        return userService.addOne(user);
     }
     @PutMapping
     public boolean updateOne(@RequestBody User user) {
-        return UserService.updateOne(user);
+        return userService.updateOne(user);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return UserService.deleteById(id);
+        return userService.deleteById(id);
     }
 
     

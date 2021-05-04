@@ -7,7 +7,7 @@ import com.gamingdate.model.Game;
 public interface IGameService {
     List<Game> findAll();
     Game findById(Long id);
-    boolean addOne(Game newModelGame);
-    boolean updateOne(Game updatedModelGame);
+    boolean addOne(Game updatedGame);
+    boolean updateOne(Game updatedGame);
     boolean deleteById(Long id);
 }

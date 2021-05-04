@@ -28,31 +28,31 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/game")
+@RequestMapping("admin/api/v1/game")
 public class GameController {
     @Autowired
-    private IGameService GameService;
+    private IGameService gameService;
     @GetMapping
     public List<Game> finAll() {
-        var Games = (List<Game>) GameService.findAll();
-        return Games;
+        var games = (List<Game>) gameService.findAll();
+        return games;
     }
     @GetMapping(path = "{id}")
     public Game findById(@PathVariable long id) {
-        var Game = (Game) GameService.findById(id);
-        return Game;
+        var game = (Game) gameService.findById(id);
+        return game;
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody Game Game) {
-        return GameService.addOne(Game);
+        return gameService.addOne(Game);
     }
     @PutMapping
     public boolean updateOne(@RequestBody Game Game) {
-        return GameService.updateOne(Game);
+        return gameService.updateOne(Game);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return GameService.deleteById(id);
+        return gameService.deleteById(id);
     }
 
     

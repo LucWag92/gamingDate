@@ -24,13 +24,13 @@ public class AccountDataService implements IAccountDataService{
         return accountData;
     }
     @Override
-    public boolean addOne(AccountData newModelAccountData) {
-        repository.save(newModelAccountData);
+    public boolean addOne(AccountData updatedAccountData) {
+        repository.save(updatedAccountData);
         return true;
     }
     @Override
-    public boolean updateOne(AccountData updatedModelAccountData) {
-        repository.save(updatedModelAccountData);
+    public boolean updateOne(AccountData updatedAccountData) {
+        repository.save(updatedAccountData);
         return true;
     }
     
@@ -39,5 +39,9 @@ public class AccountDataService implements IAccountDataService{
         var accountData = (AccountData) repository.findById(id).orElseThrow(NoSuchElementException::new);
         repository.delete(accountData);
         return true;
+    }
+    @Override
+    public List<AccountData> findByeMail(String email) {
+        return repository.findByeMail(email);
     }
 }

@@ -28,31 +28,31 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/friendGroup")
+@RequestMapping("admin/api/v1/friendGroup")
 public class ClanController {
     @Autowired
-    private IClanService ClanService;
+    private IClanService clanService;
     @GetMapping
     public List<Clan> finAll() {
-        var FriendGroups = (List<Clan>) ClanService.findAll();
-        return FriendGroups;
+        var clans = (List<Clan>) clanService.findAll();
+        return clans;
     }
     @GetMapping(path = "{id}")
     public Clan findById(@PathVariable long id) {
-        var FriendGroup = (Clan) ClanService.findById(id);
-        return FriendGroup;
+        var clan = (Clan) clanService.findById(id);
+        return clan;
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody Clan clan) {
-        return ClanService.addOne(clan);
+        return clanService.addOne(clan);
     }
     @PutMapping
     public boolean updateOne(@RequestBody Clan clan) {
-        return ClanService.updateOne(clan);
+        return clanService.updateOne(clan);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return ClanService.deleteById(id);
+        return clanService.deleteById(id);
     }
 
     

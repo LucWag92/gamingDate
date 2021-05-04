@@ -7,7 +7,7 @@ import com.gamingdate.model.Clan;
 public interface IClanService {
     List<Clan> findAll();
     Clan findById(Long id);
-    boolean addOne(Clan newModelFriendGroup);
-    boolean updateOne(Clan updatedModelFriendGroup);
+    boolean addOne(Clan updatedFriendGroup);
+    boolean updateOne(Clan updatedFriendGroup);
     boolean deleteById(Long id);
 }

@@ -24,6 +24,10 @@ public class User {
     @NotNull 
     private Profile profile;
 
+    @Column(name="role")
+    @NotNull 
+    private String role = "USER";
+
     // default connstructor which is only used for JPA
-    protected User(){}
+    public User(){}
 }

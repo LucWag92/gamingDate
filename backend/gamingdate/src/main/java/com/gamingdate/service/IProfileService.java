@@ -7,7 +7,9 @@ import com.gamingdate.model.Profile;
 public interface IProfileService {
     List<Profile> findAll();
     Profile findById(Long id);
-    boolean addOne(Profile newModelProfile);
-    boolean updateOne(Profile updatedModelProfile);
+    boolean addOne(Profile updatedProfile);
+    boolean updateOne(Profile updatedProfile);
     boolean deleteById(Long id);
+    List<Profile> findByProfileName(String profileName);
+    
 }
