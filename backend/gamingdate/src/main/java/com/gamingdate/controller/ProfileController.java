@@ -45,7 +45,7 @@ public class ProfileController {
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody Profile profile) {
-        profile.setFriendprofiles(Arrays.asList());
+       // profile.setFriendprofiles(Arrays.asList());
         return ProfileService.addOne(profile);
     }
     @PutMapping
