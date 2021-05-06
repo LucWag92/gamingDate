@@ -2,6 +2,8 @@ package com.gamingdate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class GamingdateApplication {
@@ -9,7 +11,10 @@ public class GamingdateApplication {
 		SpringApplication.run(GamingdateApplication.class, args);
 	}
 	
-
+  @Bean
+  public BCryptPasswordEncoder bCryptPasswordEncoder() {
+      return new BCryptPasswordEncoder();
+  }
 
   // @Bean
   // public CommandLineRunner demo(AccountDataRepository repository) {

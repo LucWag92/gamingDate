@@ -11,5 +11,5 @@ public class Register {
     @NotBlank
     private String password;
     @NotBlank
-    private String profileName;
+    private String username;
 }

@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("admin/api/v1/friendGroup")
+@RequestMapping("admin/api/v1/clan")
 public class ClanController {
     @Autowired
     private IClanService clanService;
