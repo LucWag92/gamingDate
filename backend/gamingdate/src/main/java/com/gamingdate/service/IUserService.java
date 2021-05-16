@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.gamingdate.model.User;
 
+
 public interface IUserService {
     List<User> findAll();
     User findById(Long id);

@@ -24,13 +24,13 @@ public class ClanService implements IClanService{
         return FriendGroup;
     }
     @Override
-    public boolean addOne(Clan newModelFriendGroup) {
-        repository.save(newModelFriendGroup);
+    public boolean addOne(Clan updatedFriendGroup) {
+        repository.save(updatedFriendGroup);
         return true;
     }
     @Override
-    public boolean updateOne(Clan updatedModelFriendGroup) {
-        repository.save(updatedModelFriendGroup);
+    public boolean updateOne(Clan updatedFriendGroup) {
+        repository.save(updatedFriendGroup);
         return true;
     }
     

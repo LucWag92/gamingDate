@@ -8,14 +8,7 @@ import com.gamingdate.model.OnlineStatus;
 import com.gamingdate.service.IOnlineStatusService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -28,31 +21,31 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("api/v1/onlineStatus")
+@RequestMapping("admin/api/v1/onlineStatus")
 public class OnlineStatusController {
     @Autowired
-    private IOnlineStatusService OnlineStatusService;
+    private IOnlineStatusService onlineStatusService;
     @GetMapping
     public List<OnlineStatus> finAll() {
-        var onlineStatuss = (List<OnlineStatus>) OnlineStatusService.findAll();
+        var onlineStatuss = (List<OnlineStatus>) onlineStatusService.findAll();
         return onlineStatuss;
     }
     @GetMapping(path = "{id}")
     public OnlineStatus findById(@PathVariable long id) {
-        var onlineStatus = (OnlineStatus) OnlineStatusService.findById(id);
+        var onlineStatus = (OnlineStatus) onlineStatusService.findById(id);
         return onlineStatus;
     }
     @PostMapping
     public boolean addOne(@Valid @RequestBody OnlineStatus onlineStatus) {
-        return OnlineStatusService.addOne(onlineStatus);
+        return onlineStatusService.addOne(onlineStatus);
     }
     @PutMapping
     public boolean updateOne(@RequestBody OnlineStatus onlineStatus) {
-        return OnlineStatusService.updateOne(onlineStatus);
+        return onlineStatusService.updateOne(onlineStatus);
     }
     @DeleteMapping(path = "{id}")
     public boolean deleteById(@PathVariable long id) {
-        return OnlineStatusService.deleteById(id);
+        return onlineStatusService.deleteById(id);
     }
 
     

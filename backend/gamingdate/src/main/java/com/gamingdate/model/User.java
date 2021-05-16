@@ -2,6 +2,7 @@ package com.gamingdate.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 
@@ -24,6 +25,16 @@ public class User {
     @NotNull 
     private Profile profile;
 
+    @Size(min = 4, max = 255, message = "Minimum username length: 4 characters")
+    @Column(unique = true, nullable = false)
+    private String username;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Size(min = 4, message = "Minimum password length: 4 characters")
+    private String password;
+
     // default connstructor which is only used for JPA
-    protected User(){}
+    public User(){}
 }

@@ -15,29 +15,33 @@ public class ProfileService implements IProfileService{
     private ProfileRepository repository;
     @Override
     public List<Profile> findAll() {
-        var Profiles = (List<Profile>) repository.findAll();
-        return Profiles;
+        var profiles = (List<Profile>) repository.findAll();
+        return profiles;
     }
     @Override
     public Profile findById(Long id){
-        var Profile = (Profile) repository.findById(id).orElseThrow(NoSuchElementException::new);
-        return Profile;
+        var profile = (Profile) repository.findById(id).orElseThrow(NoSuchElementException::new);
+        return profile;
     }
     @Override
-    public boolean addOne(Profile newModelProfile) {
-        repository.save(newModelProfile);
+    public boolean addOne(Profile newProfile) {
+        repository.save(newProfile);
         return true;
     }
     @Override
-    public boolean updateOne(Profile updatedModelProfile) {
-        repository.save(updatedModelProfile);
+    public boolean updateOne(Profile updatedProfile) {
+        repository.save(updatedProfile);
         return true;
     }
     
     @Override
     public boolean deleteById(Long id) {
-        var Profile = (Profile) repository.findById(id).orElseThrow(NoSuchElementException::new);
-        repository.delete(Profile);
+        var profile = (Profile) repository.findById(id).orElseThrow(NoSuchElementException::new);
+        repository.delete(profile);
         return true;
+    }
+    @Override
+    public List<Profile> findByProfileName(String profileName) {
+        return repository.findByProfileName(profileName);
     }
 }
