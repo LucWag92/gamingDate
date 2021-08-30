@@ -4,8 +4,11 @@ An application for you and your friends to organize what is going to be gamed to
 
 ## Debuging Infos
 ### Backend:
-- Make sure you navigate all the way into folder which contains pom.xml file
-- Start with: mvn spring-boot run
+- Navigate to backend folder. 
+- Run <code>npm install</code>
+- Create .env.prod or .env.dev file with all env variables
+- Run <code>npm start</code>
+- Run <code>nodemon index.ts</code> for debugging and testing
 
 ### Frontend:
 - Navigate into frontend folder
