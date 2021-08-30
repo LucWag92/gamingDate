@@ -17,11 +17,12 @@ export default (passport: PassportStatic, database: IDatabase) => {
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       secretOrKey: process.env.JWTKEY,
+      ignoreExpiration: false,
     },
     async (jwt_payload: JwtPayload, done) => {
+      // Since we are here, the JWT is valid!
       console.log('Wrapper Passport -- VerifyCallback');
       console.log(jwt_payload);
-      // Since we are here, the JWT is valid!
 
       // We will assign the `sub` property on the JWT to the database ID of user
       return await database

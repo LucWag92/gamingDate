@@ -6,11 +6,11 @@ import IAccountdata from '../Model/AccountData';
  */
 export default function issueJWT(accountData: IAccountdata) {
   try {
-    const expiresIn = '1d';
+    const expiresIn = '1m'; //'1d';
 
     const payload = {
       accountdataid: accountData.accountdataid,
-      iat: Date.now(),
+      //iat: Date.now(), // this messes with the default setup. Dont Use
     };
 
     const signedToken = jsonwebtoken.sign(
@@ -18,7 +18,6 @@ export default function issueJWT(accountData: IAccountdata) {
       process.env.JWTKEY as string,
       {
         expiresIn: expiresIn,
-        // algorithm: 'RS256',
       }
     );
 
