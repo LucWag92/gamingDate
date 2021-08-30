@@ -4,5 +4,3 @@ build/
 node_modules/
 coverage/
 .env.*
-package-lock.json
-pubspec.lock
