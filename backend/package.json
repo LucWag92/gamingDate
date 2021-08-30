@@ -27,6 +27,7 @@
     "npm": "^7.20.5",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.7.1"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "@types/jwt-simple": "^0.5.33",
     "@types/passport": "^1.0.7",
     "@types/passport-jwt": "^3.0.6",
+    "@types/passport-local": "^1.0.34",
     "@types/pg": "^8.6.1",
     "@types/supertest": "^2.0.11",
     "jest": "^27.0.6",

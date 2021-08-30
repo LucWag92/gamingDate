@@ -4,13 +4,13 @@ import { ISignupParams } from '../Routes/signup_route.types';
 import IDatabase from './database';
 import { pgPool } from './databaseConfig';
 import IAccountdata from '../Model/AccountData';
-import { Pool, PoolConfig } from 'pg';
+import { Pool } from 'pg';
 
 export default class Database implements IDatabase {
   pgPool: Pool = pgPool;
 
   async findAccountByEMail(email: string) {
-    const queryText = `SELECT email FROM public.accountdata WHERE email = '${email}'`;
+    const queryText = `SELECT * FROM public.accountdata WHERE email = '${email}'`;
     const client = await pgPool.connect();
     return client
       .query<IAccountdata>(queryText)
