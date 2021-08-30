@@ -1,7 +1,11 @@
 import { Router } from 'express';
 import { isEmailInValidFormat } from '../database/database';
 import IDatabase from '../database/database';
-import { ISignupParams } from './signup_route.types';
+
+export type ISignupParams = {
+  email: string;
+  password: string;
+};
 
 export default (database: IDatabase) => {
   const signUpRouter = Router();

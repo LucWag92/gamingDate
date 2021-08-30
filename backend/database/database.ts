@@ -1,14 +1,37 @@
 import hashPassword from './hashPassword';
 import validator from 'email-validator';
-import { ISignupParams } from '../Routes/signup_route.types';
-import IDatabase from './database';
+import { ISignupParams } from '../Routes/signup_route';
+
 import { pgPool } from './databaseConfig';
 import IAccountdata from '../Model/AccountData';
+
 import { Pool } from 'pg';
+
+export interface IDatabase {
+  pgPool: Pool;
+  isEmailNotInDB: (email: string) => Promise<boolean>;
+  createAccount: (newUser: ISignupParams) => Promise<boolean>;
+  findAccountByEMail: (email: string) => Promise<IAccountdata[]>;
+  findAccountByID: (accountDataId: number) => Promise<IAccountdata[]>;
+}
 
 export default class Database implements IDatabase {
   pgPool: Pool = pgPool;
 
+  async findAccountByID(accountDataId: number) {
+    const queryText = `SELECT * FROM public.accountdata WHERE accountdataid = '${accountDataId}'`;
+    const client = await pgPool.connect();
+    return client
+      .query<IAccountdata>(queryText)
+      .then((res) => {
+        return res.rows;
+      })
+      .catch((err) => {
+        console.log(err);
+        return [] as IAccountdata[];
+      })
+      .finally(() => client.release());
+  }
   async findAccountByEMail(email: string) {
     const queryText = `SELECT * FROM public.accountdata WHERE email = '${email}'`;
     const client = await pgPool.connect();
